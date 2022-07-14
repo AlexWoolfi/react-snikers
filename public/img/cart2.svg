@@ -1,20 +1,6 @@
-// import logo from './logo.svg';
-// import './App.css';  //4.14.1
-
-function App() {
-  return (
-    <div className="wrapper">
-      <header>
-        <div className="headerLeft">
-        <img width={40} height={40} src="/img/logo.png"/>
-        <div className="headerInfo">
-          <h3>React SNIKERS</h3>
-          <p>The shop better snikers</p>
-        </div>
-        </div>
-        <ul className="headerRight">
-          <li>
-          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" 
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
 <g>
 	<g>
@@ -73,18 +59,3 @@ function App() {
 <g>
 </g>
 </svg>
-            <span>1200 uah</span>
-          </li>
-          <li>
-            <svg />
-          </li>
-        </ul>
-      </header>
-      <div className="content">
-        <h1>All snikers</h1>
-      </div>
-    </div>
-  );
-}
-
-export default App;
