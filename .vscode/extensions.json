@@ -1,5 +1,8 @@
 {
     "recommendations": [
-        "formulahendry.code-runner"
+        "formulahendry.code-runner",
+        "xabikos.javascriptsnippets",
+        "burkeholland.simple-react-snippets",
+        "angelorafael.jsx-html-tags"
     ]
 }
