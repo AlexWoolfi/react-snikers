@@ -10,7 +10,7 @@ function App() {
         <img width={40} height={40} className="mr-10" src="/img/logo.png"/>
         <div>
           <h3 className="text-uppercase">React SNIKERS</h3>
-          <p>The shop better snikers</p>
+          <p className="opacity-5">The shop better snikers</p>
         </div>
         </div>
         <ul className="d-flex">
@@ -20,7 +20,7 @@ function App() {
 <path d="M16.5455 18.1818C16.9973 18.1818 17.3637 17.8155 17.3637 17.3636C17.3637 16.9118 16.9973 16.5455 16.5455 16.5455C16.0936 16.5455 15.7273 16.9118 15.7273 17.3636C15.7273 17.8155 16.0936 18.1818 16.5455 18.1818Z" stroke="#9B9B9B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M1 1H4.27273L6.46545 11.9555C6.54027 12.3321 6.7452 12.6705 7.04436 12.9113C7.34351 13.1522 7.71784 13.2801 8.10182 13.2727H16.0545C16.4385 13.2801 16.8129 13.1522 17.112 12.9113C17.4112 12.6705 17.6161 12.3321 17.6909 11.9555L19 5.09091H5.09091" stroke="#9B9B9B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-      <span>1200 uah</span>
+      <span>1200 uaah</span>
           </li>
           <li>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,24 +32,65 @@ function App() {
       </header>
       <div className="content p-40">
         <h1>All snikers</h1>
-   
-        <div className="card">
+   <div className="d-flex">
+   <div className="card">
         <img width={133} height={112} src="\img\snikers\image1.jpg" alt="Snikers" />
         <p>Мужские Кроссовки Nike Blazer Mid Suede</p>
         <div className="d-flex justify-between align-center">
           <div className="d-flex justify-between align-center">
-            <p>Price</p>
+            <p className="mr-5">Price</p>
             
-            <b>12 999 uah</b>
-            <button className="button">
-              <img width={11} height={11} src="\img\plus.svg" alt="Plus" />
+            <b className="mr-15">12 999 uah</b>
+            <button className="button" >
+              <img width={13} height={13} src="\img\plus.svg" alt="Plus" />
             </button>
           </div>
         </div>
-        
-          
-
         </div>
+        <div className="card">
+        <img width={133} height={112} src="\img\snikers\image2.jpg" alt="Snikers" />
+        <p>Мужские Кроссовки Nike Blazer Mid Suede</p>
+        <div className="d-flex justify-between align-center">
+          <div className="d-flex justify-between align-center">
+            <p className="mr-5">Price</p>
+            
+            <b className="mr-15">12 999 uah</b>
+            <button className="button" >
+              <img width={13} height={13} src="\img\plus.svg" alt="Plus" />
+            </button>
+          </div>
+        </div>
+        </div>
+        <div className="card">
+        <img width={133} height={112} src="\img\snikers\image3.jpg" alt="Snikers" />
+        <p>Мужские Кроссовки Nike Blazer Mid Suede</p>
+        <div className="d-flex justify-between align-center">
+          <div className="d-flex justify-between align-center">
+            <p className="mr-5">Price</p>
+            
+            <b className="mr-15">12 999 uah</b>
+            <button className="button" >
+              <img width={13} height={13} src="\img\plus.svg" alt="Plus" />
+            </button>
+          </div>
+        </div>
+        </div>
+        <div className="card">
+        <img width={133} height={112} src="\img\snikers\image4.jpg" alt="Snikers" />
+        <p>Мужские Кроссовки Nike Blazer Mid Suede</p>
+        <div className="d-flex justify-between align-center">
+          <div className="d-flex justify-between align-center">
+            <p className="mr-5">Price</p>
+            
+            <b className="mr-15">12 999 uah</b>
+            <button className="button" >
+              <img width={13} height={13} src="\img\plus.svg" alt="Plus" />
+            </button>
+          </div>
+        </div>
+        </div>
+   </div>
+        
       </div>
     </div>
   );
