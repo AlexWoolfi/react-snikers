@@ -5,6 +5,55 @@
 function App() {
   return (
     <div className="wrapper clear">
+<div className="overlay">
+<div className="drawer">
+  <h2>CART</h2>
+
+
+  <div className="cartItem d-flex align-center">
+    <div style={{backgroundImage: 'url(/img/snikers/image2.jpg)'}} className="carItemImg">
+  </div>
+    <div> 
+    <div className="mr-20">
+    <p className="mb-5">Мужские Кроссовки Nike Blazer Mid Suede</p>
+    <b>12 999 uah</b>
+      </div>
+    </div>
+    <img className="remove-btn" src="\img\btn-remove.svg" alt="btn-remove" />
+  </div>
+  <div className="cartItem d-flex align-center">
+    <div style={{backgroundImage: 'url(/img/snikers/image1.jpg)'}} className="carItemImg">
+
+    </div>
+    <div> 
+    <div className="mr-20">
+    <p className="mb-5">Мужские Кроссовки Nike Blazer Mid Suede</p>
+    <b>12 999 uah</b>
+      </div>
+    </div>
+    <img className="remove-btn" src="\img\btn-remove.svg" alt="btn-remove" />
+  </div>
+
+  <div className="items">
+    <ul className="cartTotalBlock">
+      <li className="">
+        <span>Total:</span>
+        <div></div>
+        <b>21 000 uah</b>
+      </li>
+      <li className="">
+        <span>Tax 5%:</span>
+        <div></div>
+        <b>21 000 uah</b>
+      </li>
+    </ul>
+  </div>
+
+
+  
+  </div>
+  
+</div>
       <header className="d-flex justify-between align-center p-40">
         <div className="d-flex align-center">
         <img width={40} height={40} className="mr-10" src="/img/logo.png"/>
@@ -20,7 +69,7 @@ function App() {
 <path d="M16.5455 18.1818C16.9973 18.1818 17.3637 17.8155 17.3637 17.3636C17.3637 16.9118 16.9973 16.5455 16.5455 16.5455C16.0936 16.5455 15.7273 16.9118 15.7273 17.3636C15.7273 17.8155 16.0936 18.1818 16.5455 18.1818Z" stroke="#9B9B9B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M1 1H4.27273L6.46545 11.9555C6.54027 12.3321 6.7452 12.6705 7.04436 12.9113C7.34351 13.1522 7.71784 13.2801 8.10182 13.2727H16.0545C16.4385 13.2801 16.8129 13.1522 17.112 12.9113C17.4112 12.6705 17.6161 12.3321 17.6909 11.9555L19 5.09091H5.09091" stroke="#9B9B9B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-      <span>1200 uaah</span>
+      <span>1200 uah</span>
           </li>
           <li>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -31,11 +80,21 @@ function App() {
         </ul>
       </header>
       <div className="content p-40">
+        <div className="d-flex justify-between align-center mb-40">
         <h1>All snikers</h1>
+        <div className="search-block">
+        <input className="d-flex"  placeholder="Search..."/>
+        </div>
+        
+        </div>
+       
    <div className="d-flex">
    <div className="card">
-        <img width={133} height={112} src="\img\snikers\image1.jpg" alt="Snikers" />
-        <p>Мужские Кроссовки Nike Blazer Mid Suede</p>
+    <div className="favorite">
+    <img src="\img\heart-white.svg" alt="heart-white" />
+    </div>
+    <img width={133} height={112} src="\img\snikers\image1.jpg" alt="Snikers" />
+        <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
         <div className="d-flex justify-between align-center">
           <div className="d-flex justify-between align-center">
             <p className="mr-5">Price</p>
@@ -49,7 +108,7 @@ function App() {
         </div>
         <div className="card">
         <img width={133} height={112} src="\img\snikers\image2.jpg" alt="Snikers" />
-        <p>Мужские Кроссовки Nike Blazer Mid Suede</p>
+        <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
         <div className="d-flex justify-between align-center">
           <div className="d-flex justify-between align-center">
             <p className="mr-5">Price</p>
@@ -63,7 +122,7 @@ function App() {
         </div>
         <div className="card">
         <img width={133} height={112} src="\img\snikers\image3.jpg" alt="Snikers" />
-        <p>Мужские Кроссовки Nike Blazer Mid Suede</p>
+        <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
         <div className="d-flex justify-between align-center">
           <div className="d-flex justify-between align-center">
             <p className="mr-5">Price</p>
@@ -77,7 +136,7 @@ function App() {
         </div>
         <div className="card">
         <img width={133} height={112} src="\img\snikers\image4.jpg" alt="Snikers" />
-        <p>Мужские Кроссовки Nike Blazer Mid Suede</p>
+        <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
         <div className="d-flex justify-between align-center">
           <div className="d-flex justify-between align-center">
             <p className="mr-5">Price</p>
