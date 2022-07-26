@@ -1,4 +1,5 @@
-function Card() {
+function Card(props) {
+  const alertUp=()=>alert(props.title)
   return (
     <div className="card">
       <div className="favorite">
@@ -7,16 +8,16 @@ function Card() {
       <img
         width={133}
         height={112}
-        src="\img\snikers\image1.jpg"
+        src={props.imageUrl}
         alt="Snikers"
       />
-      <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
+      <h5>{props.title}</h5>
       <div className="d-flex justify-between align-center">
         <div className="d-flex justify-between align-center">
           <p className="mr-5">Price</p>
 
-          <b className="mr-15">12 999 uah</b>
-          <button className="button">
+          <b className="mr-15">{props.price} uah</b>
+          <button className="button" onClick={alertUp}>
             <img width={13} height={13} src="\img\plus-white.svg" alt="Plus" />
           </button>
         </div>
