@@ -29,20 +29,10 @@ body {
 // }
 
 header {
-  /* Line 3 */
+
 
   border: 1px solid #eaeaea;
 
-  // display: flex;
-  // justify-content: space-between;
-  // padding: 40px;
-
-  // .headerLeft {
-  //   // display: flex;
-  //   // align-items: center;
-  //     // img {
-  //     //   margin-right: 0;
-  //     // }
   h3,
   p {
     margin: 0;
@@ -53,41 +43,6 @@ header {
   h1 {
     margin: 0;
   }
-}
-
-.card {
-  // background: #FFFFFF;
-  border: 1px solid #f3f3f3;
-  border-radius: 20px;
-  padding: 15px;
-  width: 240px;
-  margin-right: 25px;
-  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
-  // cursor: pointer;
-
-  &:hover {
-    box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.05);
-    transform: translateY(-5px);
-  }
-
-  .favorite {
-    position: absolute;
-    cursor: pointer;
-  }
-
-  span {
-    opacity: 0.5;
-    font-size: 13px;
-    text-transform: uppercase;
-  }
-  h5 {
-    font-size: 14px;
-    font-weight: 400;
-  }
-  b {
-    font-size: 13px;
-  }
-  
 }
 
 .button {
