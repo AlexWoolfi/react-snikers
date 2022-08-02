@@ -7,6 +7,10 @@
     margin-right: 25px;
     transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
     // cursor: pointer;
+
+    .plus {
+      cursor: pointer;
+    }
   
     &:hover {
       box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.05);

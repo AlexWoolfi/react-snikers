@@ -1,31 +1,21 @@
+import React from "react";
 import Card from "./components/Card";
 import Drawer from "./components/Drawer";
 import Header from "./components/Header";
 
 
-const arr = [
-  {
-    title: "Мужские Кроссовки Nike Blazer Suede-1",
-    price: 1299,
-    imageUrl: "/img/snikers/image1.jpg",
-  },
-  {
-    title: "Мужские Кроссовки Nike Blazer Suede-2",
-    price: 1400,
-    imageUrl: "/img/snikers/image2.jpg",
-  },
-  {
-    title: "Мужские Кроссовки Nike Blazer Suede-3",
-    price: 1500,
-    imageUrl: "/img/snikers/image3.jpg",
-  },
-];
 
 function App() {
-  return (
+  const [isCartOpen, setCart] = React.useState(false);
+  const [items, setItems] = React.useState([]);
+
+
+return (
     <div className="wrapper clear">
-      <Drawer />
-      <Header />
+    {/* {isCartOpen ? <Drawer onCloseCart={()=>setCart(false)}/> : null} */}
+    {isCartOpen && <Drawer onCloseCart={()=>setCart(false)}/>}
+      <Header onClickCart={()=>setCart(true)
+      }/>
       <div className="content p-40">
         <div className="d-flex justify-between align-center mb-40">
           <h1>All snikers</h1>
@@ -34,17 +24,21 @@ function App() {
           </div>
         </div>
 
-        <div className="d-flex">
-          {arr.map((obj) => (
+        <div className="d-flex flex-wrap">
+          {items.map((obj) => (
             <Card 
             title={obj.title} 
             imageUrl={obj.imageUrl} 
-            price={obj.price} />
+            price={obj.price} 
+            onClickFavorite ={()=>console.log("Add to favorite")}
+            onClickPlus ={()=>console.log("Add to cart")}
+            />
+            
           ))}
         </div>
-      </div>
+      </div> 
     </div>
   );
-}
+ }
 
 export default App;
