@@ -4,6 +4,7 @@
         "xabikos.javascriptsnippets",
         "burkeholland.simple-react-snippets",
         "angelorafael.jsx-html-tags",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "mcright.auto-save"
     ]
 }

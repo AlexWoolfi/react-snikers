@@ -85,7 +85,7 @@ header {
   display: flex;
   flex-direction: column;
   position: absolute;
-  width: 44%;
+  width: 36%;
   right: 0;
   height: 100%;
   background: #ffffff;
@@ -93,8 +93,8 @@ header {
   padding: 30px;
 
   .items {
+    display: contents;
     overflow: auto;
-    margin-top: 80%;
   }
 
   h2 {
@@ -105,7 +105,7 @@ header {
   .cartItem {
     box-sizing: border-box;
     overflow: hidden;
-    width: 375px;
+    // width: 375px;
     height: 80px;
     background: #ffffff;
     border: 1px solid #f3f3f3;
@@ -148,15 +148,15 @@ header {
 }
 
 .items {
-  position: relative;
+  position: absolute;
   margin-top: 10px;
 }
 .cartTotalBlock {
-
+ width: 100%;
  
   ul {
     display: block;
-    margin-bottom: 40px !important;
+    
     li {
       display: flex;
       align-items: flex-end;
