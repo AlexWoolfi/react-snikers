@@ -2,13 +2,14 @@ import React from 'react';
 import styles from './Card.module.scss';
 // console.log(styles);
 
-function Card({imageUrl,title,price,onFavorite,onPlus}) {
+function Card({imageUrl,title,price,onPlus,onFavorite}) {
   // const alertUp=()=>alert(props.title)
   const [isAdded,setIsAdded] = React.useState(false);
 
   const [isLike, setIsLike] = React.useState(false);
 
   const onClickFavorite = ()=> {
+    onFavorite({imageUrl,title,price});
     setIsLike(!isLike);
   }
 
@@ -24,8 +25,9 @@ function Card({imageUrl,title,price,onFavorite,onPlus}) {
 
   return (
     <div className={styles.card}>
-      <div className={styles.favorite} onClick={onFavorite}>
-        <img onClick={onClickFavorite}
+      <div className={styles.favorite}>
+        <img 
+         onClick={onClickFavorite}
          src={isLike ? "/img/heart-red.svg":"/img/heart-white.svg"} alt="heart-white" />
       </div>
       <img 
