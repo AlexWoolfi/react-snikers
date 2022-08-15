@@ -82,11 +82,11 @@ function App() {
         />
       )}
       <Header onClickCart={() => setCart(true)} />
-      <Routes>
-        <Route path="/test2">
-          
+     
+        <Route path="/test">
+          "The test"
         </Route>
-        </Routes>
+      
         
       
 
