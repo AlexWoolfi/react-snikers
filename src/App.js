@@ -1,4 +1,5 @@
 import React from "react";
+import { Route, Routes, Switch, Link } from "react-router-dom";
 import axios from "axios";
 import Card from "./components/Card";
 import Drawer from "./components/Drawer";
@@ -9,7 +10,7 @@ function App() {
   const [items, setItems] = React.useState([]);
   const [cartItems, setcartItems] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState("");
-  const [favorites,setFavorites] = React.useState([]);
+  const [favorites, setFavorites] = React.useState([]);
 
   // React.useEffect(()=> {
   //   fetch('https://62e4e10fc6b56b45118b3324.mockapi.io/Items')
@@ -45,7 +46,6 @@ function App() {
     axios.post("https://62e4e10fc6b56b45118b3324.mockapi.io/favorites", obj);
     // setcartItems([...cartItems,obj]);
     setFavorites((prev) => [...favorites, obj]);
-    
   };
   const onRemoveItemFromCart = (id) => {
     // console.log(id);
@@ -82,6 +82,14 @@ function App() {
         />
       )}
       <Header onClickCart={() => setCart(true)} />
+      <Routes>
+        <Route path="/test2">
+          
+        </Route>
+        </Routes>
+        
+      
+
       <div className="content p-40">
         <div className="d-flex justify-between align-center mb-40">
           <h1>
@@ -117,8 +125,8 @@ function App() {
                 title={item.title}
                 imageUrl={item.imageUrl}
                 price={item.price}
-                onFavorite={obj=> onAddFavorite(obj)}
-                onPlus={obj=> onAddToCart(obj)}
+                onFavorite={(obj) => onAddFavorite(obj)}
+                onPlus={(obj) => onAddToCart(obj)}
               />
             ))}
         </div>
