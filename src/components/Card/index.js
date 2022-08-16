@@ -2,14 +2,14 @@ import React from 'react';
 import styles from './Card.module.scss';
 // console.log(styles);
 
-function Card({imageUrl,title,price,onPlus,onFavorite}) {
+function Card({id, imageUrl,title,price,onPlus,onFavorite, isFavorited=false}) {
   // const alertUp=()=>alert(props.title)
   const [isAdded,setIsAdded] = React.useState(false);
 
-  const [isLike, setIsLike] = React.useState(false);
+  const [isLike, setIsLike] = React.useState(isFavorited);
 
   const onClickFavorite = ()=> {
-    onFavorite({imageUrl,title,price});
+    onFavorite({id,imageUrl,title,price});
     setIsLike(!isLike);
   }
 

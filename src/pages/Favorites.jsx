@@ -1,17 +1,12 @@
 import Card from "../components/Card";
 
-// function Home(items,
-//     searchValue,
-//     onChangeSearchInput,
-//     toCleanSearch,
-//     onAddFavorite,
-//     onAddToCart)
-function Home(props) {
+function Favorites(
+      props) {
     return (
         <div className="content p-40">
         <div className="d-flex justify-between align-center mb-40">
           <h1>
-            {props.searchValue ? `Поиск по запросу:"${props.searchValue}"` : `All sniker`}
+            {props.searchValue ? `Поиск по запросу:"${props.searchValue}"` : `My Favorites`}
           </h1>
           <div className="search-block d-flex">
             {props.searchValue && (
@@ -34,23 +29,21 @@ function Home(props) {
 
         <div className="d-flex flex-wrap">
           {props.items
-            .filter((item) =>
-              item.title.toLowerCase().includes(props.searchValue.toLowerCase())
-            )
-            .map((item, index) => (
-              <Card
+          .filter(item =>item.title.toLowerCase().includes(props.searchValue.toLowerCase()))
+          .map((item, index) =>
+          <Card
                 key={index}
-                // id= {item.id}
                 // title={item.title}
                 // imageUrl={item.imageUrl}
                 // price={item.price}
                 onFavorite={(obj) => props.onAddFavorite(obj)}
                 onPlus={(obj) => props.onAddToCart(obj)}
+                isFavorited = {true}
+                onAddFavorite={props.onAddFavorite}
                 {...item}
-              />
-            ))}
+              />)}
         </div>
       </div>
     );
 }
-export default Home;
+export default Favorites;
