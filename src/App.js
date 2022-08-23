@@ -43,19 +43,37 @@ function App() {
       });
   }, []);
 
-  const onAddToCart = (obj) => {
-    axios.post("https://62e4e10fc6b56b45118b3324.mockapi.io/Cart", obj);
-    // setcartItems([...cartItems,obj]);
-    setcartItems((prev) => [...cartItems, obj]);
-    //Вопрос
+  const onAddToCart = async(obj) => {
+    console.log(obj);
+    try {
+     if(cartItems.find(item => item.id === obj.id)){
+       setcartItems(prev=>prev.filter(item => item.id !== obj.id))
+     }
+     else {
+      axios.post("https://62e4e10fc6b56b45118b3324.mockapi.io/Cart", obj);
+      // setcartItems([...cartItems,obj]);
+      setcartItems((prev) => [...cartItems, obj]);
+      //Вопрос
+     }
+    } catch (error) {
+      alert('Error: ' + error.message);
+    }
+   
   };
+
+
+
   const onAddFavorite = async(obj) => {
-    if(favorites.find(favObj=>favObj.id === obj.id)){
-      axios.delete(`https://62e4e10fc6b56b45118b3324.mockapi.io/favorites/${obj.id}`);
-      setFavorites((prev) => prev.filter((item) => item.id !== obj.id));
-    }else {
-      const { data} = await axios.post("https://62e4e10fc6b56b45118b3324.mockapi.io/favorites", obj);
-      setFavorites((prev) => [...favorites, data]);
+    try {
+      if(favorites.find(favObj=>favObj.id === obj.id)){
+        axios.delete(`https://62e4e10fc6b56b45118b3324.mockapi.io/favorites/${obj.id}`);
+        setFavorites((prev) => prev.filter((item) => item.id !== obj.id));
+      }else {
+        const { data} = await axios.post("https://62e4e10fc6b56b45118b3324.mockapi.io/favorites", obj);
+        setFavorites((prev) => [...favorites, data]);
+      }
+    } catch (error) {
+      alert("Cannot to add favorites", error.message)
     }
    
   };
