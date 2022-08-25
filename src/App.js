@@ -6,12 +6,15 @@ import Drawer from "./components/Drawer";
 import Header from "./components/Header";
 import Favorites from "./pages/Favorites";
 
+export const AppContext = React.createContext({});
+
 function App() {
   const [isCartOpen, setCart] = React.useState(false);
   const [items, setItems] = React.useState([]);
   const [cartItems, setcartItems] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState("");
   const [favorites, setFavorites] = React.useState([]);
+  const [isLoadingReady, setLoadingReady] = React.useState(true);
 
   // React.useEffect(()=> {
   //   fetch('https://62e4e10fc6b56b45118b3324.mockapi.io/Items')
@@ -23,30 +26,50 @@ function App() {
   //   });
   // },[]);
   React.useEffect(() => {
-    axios
-      .get("https://62e4e10fc6b56b45118b3324.mockapi.io/Items")
-      .then((res) => {
-        console.log(res.data);
-        setItems(res.data);
-      });
-    axios
-      .get("https://62e4e10fc6b56b45118b3324.mockapi.io/Cart")
-      .then((res) => {
-        console.log(res.data);
-        setcartItems(res.data);
-      });
-      axios
-      .get("https://62e4e10fc6b56b45118b3324.mockapi.io/favorites")
-      .then((res) => {
-        console.log(res.data);
-        setFavorites(res.data);
-      });
+
+    async function axiosGetData() {
+      setLoadingReady(true);
+      const cartResponse = await  axios
+      .get("https://62e4e10fc6b56b45118b3324.mockapi.io/Cart");
+      const favoritesResponse = await axios
+      .get("https://62e4e10fc6b56b45118b3324.mockapi.io/favorites");
+      const itemsResponse = await axios
+      .get("https://62e4e10fc6b56b45118b3324.mockapi.io/Items");
+
+      setLoadingReady(false);
+
+      setcartItems(cartResponse.data);
+      setFavorites(favoritesResponse.data);
+      setItems(itemsResponse.data);
+    }
+    axiosGetData();
+
+
+    // axios
+    //   .get("https://62e4e10fc6b56b45118b3324.mockapi.io/Items")
+    //   .then((res) => {
+    //     console.log(res.data);
+    //     setItems(res.data);
+    //   });
+    // axios
+    //   .get("https://62e4e10fc6b56b45118b3324.mockapi.io/Cart")
+    //   .then((res) => {
+    //     console.log(res.data);
+    //     setcartItems(res.data);
+    //   });
+    //   axios
+    //   .get("https://62e4e10fc6b56b45118b3324.mockapi.io/favorites")
+    //   .then((res) => {
+    //     console.log(res.data);
+    //     setFavorites(res.data);
+    //   });
   }, []);
 
   const onAddToCart = async(obj) => {
     console.log(obj);
     try {
      if(cartItems.find(item => item.id === obj.id)){
+      axios.delete(`https://62e4e10fc6b56b45118b3324.mockapi.io/Cart/${obj.id}`);
        setcartItems(prev=>prev.filter(item => item.id !== obj.id))
      }
      else {
@@ -64,6 +87,7 @@ function App() {
 
 
   const onAddFavorite = async(obj) => {
+    console.log(obj);
     try {
       if(favorites.find(favObj=>favObj.id === obj.id)){
         axios.delete(`https://62e4e10fc6b56b45118b3324.mockapi.io/favorites/${obj.id}`);
@@ -102,7 +126,8 @@ function App() {
   };
 
   return (
-    <div className="wrapper clear">
+   <AppContext.Provider value={{items, cartItems, favorites}}>
+     <div className="wrapper clear">
       {/* {isCartOpen?<Drawer/>:null} */}
       {/* {isCartOpen ? <Drawer onCloseCart={()=>setCart(false)}/> : null} */}
       {isCartOpen && (
@@ -116,6 +141,7 @@ function App() {
       
         <Route path="/" exact>
           <Home
+            cartItems={cartItems}
             items={items}
             searchValue={searchValue}
             setSearchValue={setSearchValue}
@@ -123,6 +149,7 @@ function App() {
             toCleanSearch={toCleanSearch}
             onAddFavorite={onAddFavorite}
             onAddToCart={onAddToCart}
+            isLoading={isLoadingReady}
           />
         </Route>
         <Route path="/favorites" exact>
@@ -136,6 +163,7 @@ function App() {
         </Route>
       
     </div>
+   </AppContext.Provider>
   );
 }
 

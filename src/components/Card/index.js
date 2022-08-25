@@ -1,41 +1,82 @@
-import React from 'react';
-import styles from './Card.module.scss';
+import React from "react";
+import styles from "./Card.module.scss";
+import ContentLoader from "react-content-loader"
 // console.log(styles);
+// const MyLoader = (props) => (
+//   <ContentLoader 
+//     speed={2}
+//     width={150}
+//     height={200}
+//     viewBox="0 0 150 200"
+//     backgroundColor="#f3f3f3"
+//     foregroundColor="#ecebeb"
+//     {...props}
+//   >
+//     <rect x="0" y="0" rx="10" ry="10" width="150" height="90" /> 
+//     <rect x="0" y="106" rx="10" ry="10" width="150" height="15" /> 
+//     <rect x="0" y="136" rx="10" ry="10" width="93" height="15" /> 
+//     <rect x="0" y="176" rx="8" ry="8" width="80" height="24" /> 
+//     <rect x="119" y="168" rx="8" ry="8" width="32" height="32" />
+//   </ContentLoader>
+// )
 
-function Card({id, imageUrl,title,price,onPlus,onFavorite, isFavorited=false}) {
+function Card({
+  id,
+  imageUrl,
+  title,
+  price,
+  onPlus,
+  onFavorite,
+  isFavorited = false,
+  addEd = false,
+  isLoading = false
+}) {
   // const alertUp=()=>alert(props.title)
-  const [isAdded,setIsAdded] = React.useState(false);
-
+  const [isAdded, setIsAdded] = React.useState(addEd);
   const [isLike, setIsLike] = React.useState(isFavorited);
 
-  const onClickFavorite = ()=> {
-    onFavorite({id,imageUrl,title,price});
+  const onClickFavorite = () => {
+    onFavorite({ id, imageUrl, title, price });
     setIsLike(!isLike);
-  }
+  };
 
-  const onClickPlus= ()=> {
-    onPlus({id,  imageUrl, title, price});
+  const onClickPlus = () => {
+    onPlus({ id, imageUrl, title, price });
     setIsAdded(!isAdded);
-  }
+  };
 
   // React.useEffect(()=> {
   //   console.log('Varable is change');
   // }, [isAdded]);
-
+  
 
   return (
     <div className={styles.card}>
-      <div className={styles.favorite}>
-        <img 
-         onClick={onClickFavorite}
-         src={isLike ? "/img/heart-red.svg":"/img/heart-white.svg"} alt="heart-white" />
+      {
+        isLoading ? <ContentLoader 
+        speed={2}
+        width={150}
+        height={200}
+        viewBox="0 0 150 200"
+        backgroundColor="#f3f3f3"
+        foregroundColor="#ecebeb"
+        
+      >
+        <rect x="0" y="0" rx="10" ry="10" width="150" height="90" /> 
+        <rect x="0" y="106" rx="10" ry="10" width="150" height="15" /> 
+        <rect x="0" y="136" rx="10" ry="10" width="93" height="15" /> 
+        <rect x="0" y="176" rx="8" ry="8" width="80" height="24" /> 
+        <rect x="119" y="168" rx="8" ry="8" width="32" height="32" />
+      </ContentLoader> :
+        <>
+        <div className={styles.favorite}>
+        <img
+          onClick={onClickFavorite}
+          src={isLike ? "/img/heart-red.svg" : "/img/heart-white.svg"}
+          alt="heart-white"
+        />
       </div>
-      <img 
-        width={133}
-        height={112}
-        src={imageUrl}
-        alt="Snikers"
-      /> 
+      <img width={133} height={112} src={imageUrl} alt="Snikers" />
       <h5>{title}</h5>
       <div className="d-flex justify-between align-center">
         <div className="d-flex justify-between align-center">
@@ -46,12 +87,19 @@ function Card({id, imageUrl,title,price,onPlus,onFavorite, isFavorited=false}) {
           {/* <button className="button" onClick={props.onClickPlus}>
             <img width={13} height={13} src="\img\plus-white.svg" alt="Plus" />
           </button> */}
-          <img className={styles.plus} width={20} height={20}
-           onClick={onClickPlus}
-           src={isAdded ? "/img/plus-green.svg":"/img/plus-white.svg"}
-           alt="Plus" />
+          <img
+            className={styles.plus}
+            width={20}
+            height={20}
+            onClick={onClickPlus}
+            src={isAdded ? "/img/plus-green.svg" : "/img/plus-white.svg"}
+            alt="Plus"
+          />
         </div>
       </div>
+      </>
+      }
+      
     </div>
   );
 }

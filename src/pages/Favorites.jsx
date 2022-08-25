@@ -1,7 +1,12 @@
+import React from "react";
 import Card from "../components/Card";
+import { AppContext } from "../App"
+
 
 function Favorites(
       props) {
+
+        const { favorites } = React.useContext(AppContext);
     return (
         <div className="content p-40">
         <div className="d-flex justify-between align-center mb-40">
@@ -28,7 +33,7 @@ function Favorites(
         </div>
 
         <div className="d-flex flex-wrap">
-          {props.items
+          {favorites
           .filter(item =>item.title.toLowerCase().includes(props.searchValue.toLowerCase()))
           .map((item, index) =>
           <Card

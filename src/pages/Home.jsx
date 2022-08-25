@@ -7,6 +7,26 @@ import Card from "../components/Card";
 //     onAddFavorite,
 //     onAddToCart)
 function Home(props) {
+
+  const renderItems=()=>{
+   const filtrItems = props.items.filter((item) =>
+   item.title.toLowerCase().includes(props.searchValue.toLowerCase())
+ )
+    return (props.isLoading ?[...Array(8)] : filtrItems).map((item, index) => (
+      <Card
+        key={index}
+        // id= {item.id}
+        // title={item.title}
+        // imageUrl={item.imageUrl}
+        // price={item.price}
+        onFavorite={(obj) => props.onAddFavorite(obj)}
+        onPlus={(obj) => props.onAddToCart(obj)}
+        addEd={props.cartItems.some(obj => Number(obj.id) === Number(item.id))}
+        isLoading ={props.isLoading}
+        {...item}
+      />
+    ))
+  }
     return (
         <div className="content p-40">
         <div className="d-flex justify-between align-center mb-40">
@@ -33,22 +53,7 @@ function Home(props) {
         </div>
 
         <div className="d-flex flex-wrap">
-          {props.items
-            .filter((item) =>
-              item.title.toLowerCase().includes(props.searchValue.toLowerCase())
-            )
-            .map((item, index) => (
-              <Card
-                key={index}
-                // id= {item.id}
-                // title={item.title}
-                // imageUrl={item.imageUrl}
-                // price={item.price}
-                onFavorite={(obj) => props.onAddFavorite(obj)}
-                onPlus={(obj) => props.onAddToCart(obj)}
-                {...item}
-              />
-            ))}
+          {renderItems()}
         </div>
       </div>
     );

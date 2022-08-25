@@ -57,7 +57,7 @@ function Drawer({ onCloseCart, items = [], onRemove }) {
         ) : (
           <div className="cartEmpty d-flex align-center justify-center flex-column flex">
             <img
-              class="mb-20"
+              className="mb-20"
               width="120px"
               height="120px"
               src="\img\empty-cart.jpg"
