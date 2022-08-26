@@ -1,8 +1,19 @@
+import React from "react";
+import  Info  from "./Info";
+import { AppContext } from "../App"
+
 function Drawer({ onCloseCart, items = [], onRemove }) {
+  const { orderDone, setOrderDone} = React.useState(false);
+ 
+
+  const onClickOrder = () => {
+    setOrderDone(true);
+    setcartItems([]);
+  };
   return (
     <div className="overlay">
       <div className="drawer">
-        <h2 className="d-flex justify-between">
+        <h2 className="d-flex justify-between mb-30">
           CART{" "}
           <img
             onClick={onCloseCart}
@@ -13,7 +24,7 @@ function Drawer({ onCloseCart, items = [], onRemove }) {
         </h2>
 
         {items.length > 0 ? (
-          <div>
+          <div className="d-flex flex-column flex">
             <div className="items">
               {items.map((obj) => (
                 <div key={obj.id} className="cartItem d-flex align-center mb-20">
@@ -49,27 +60,13 @@ function Drawer({ onCloseCart, items = [], onRemove }) {
                   <b>21 000 uah</b>
                 </li>
               </ul>
-              <button className="greenButton">
+              <button onClick={onClickOrder} className="greenButton">
                 Order <img src="\img\arrow.svg" alt="arrow" />
               </button>
             </div>
           </div>
         ) : (
-          <div className="cartEmpty d-flex align-center justify-center flex-column flex">
-            <img
-              className="mb-20"
-              width="120px"
-              height="120px"
-              src="\img\empty-cart.jpg"
-              alt="empty-car"
-            />
-            <h2>Cart is empty</h2>
-            <p>Add at least 1 product to place an order</p>
-            <button onClick={onCloseCart} className="greenButton">
-              <img  src="\img\arrow.svg" alt="arrow" />
-              Back
-            </button>
-          </div>
+          <Info title="Cert is empty" description = "You need add product to cart" image = "\img\empty-cart.jpg"/>
         )}
       </div>
     </div>

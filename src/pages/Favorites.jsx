@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "../components/Card";
 import { AppContext } from "../App"
+// import AppContext from "../context"; или так!
 
 
 function Favorites(

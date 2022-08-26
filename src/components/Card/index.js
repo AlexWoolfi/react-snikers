@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Card.module.scss";
 import ContentLoader from "react-content-loader"
+import { AppContext} from "../../App";
 // console.log(styles);
 // const MyLoader = (props) => (
 //   <ContentLoader 
@@ -32,7 +33,9 @@ function Card({
   isLoading = false
 }) {
   // const alertUp=()=>alert(props.title)
-  const [isAdded, setIsAdded] = React.useState(addEd);
+  const { getAdedItems } = React.useContext(AppContext);
+  console.log(title, getAdedItems(id));
+  // const [isAdded, setIsAdded] = React.useState(addEd); Уже не нужно так как Контекст
   const [isLike, setIsLike] = React.useState(isFavorited);
 
   const onClickFavorite = () => {
@@ -42,7 +45,7 @@ function Card({
 
   const onClickPlus = () => {
     onPlus({ id, imageUrl, title, price });
-    setIsAdded(!isAdded);
+    // setIsAdded(!isAdded);
   };
 
   // React.useEffect(()=> {
@@ -92,7 +95,8 @@ function Card({
             width={20}
             height={20}
             onClick={onClickPlus}
-            src={isAdded ? "/img/plus-green.svg" : "/img/plus-white.svg"}
+            // src={isAdded ? "/img/plus-green.svg" : "/img/plus-white.svg"}
+            src={getAdedItems(id) ? "/img/plus-green.svg" : "/img/plus-white.svg"}
             alt="Plus"
           />
         </div>

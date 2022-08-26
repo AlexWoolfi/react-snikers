@@ -29,8 +29,6 @@ body {
 // }
 
 header {
-
-
   border: 1px solid #eaeaea;
 
   h3,
@@ -161,11 +159,13 @@ header {
   margin-top: 10px;
 }
 .cartTotalBlock {
- width: 100%;
- 
+  position: absolute;
+  width: 90%;
+  bottom: 25px;
+
   ul {
     display: block;
-    
+
     li {
       display: flex;
       align-items: flex-end;
@@ -183,21 +183,20 @@ header {
 }
 
 .greenButton {
-   position: relative;
+  position: relative;
 
-   &:hover {
+  &:hover {
     img {
       transform: translateX(5px);
     }
-   }
-   
-   img {
-     position: absolute;
-     right: 30px;
-     top: 20px;
-     transition: transform 0.15s ease-in-out;
-   }
+  }
 
+  img {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    transition: transform 0.15s ease-in-out;
+  }
 
   cursor: pointer;
   width: 100%;
@@ -210,12 +209,10 @@ header {
   font-weight: 500;
   // transition: #9dd558;
 
- 
-
   &:hover {
-    background: opacify($color: #93e063, $amount: 0)
+    background: opacify($color: #93e063, $amount: 0);
   }
-  &:active{
+  &:active {
     background: darken($color: #034a06, $amount: 0);
   }
 }

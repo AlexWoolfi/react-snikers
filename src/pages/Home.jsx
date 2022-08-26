@@ -1,4 +1,6 @@
+import React from 'react';
 import Card from "../components/Card";
+// import { AppContext} from "../App";
 
 // function Home(items,
 //     searchValue,
@@ -7,7 +9,8 @@ import Card from "../components/Card";
 //     onAddFavorite,
 //     onAddToCart)
 function Home(props) {
-
+  
+  // const { getAdedItems } = React.useContext(AppContext);
   const renderItems=()=>{
    const filtrItems = props.items.filter((item) =>
    item.title.toLowerCase().includes(props.searchValue.toLowerCase())
@@ -15,15 +18,16 @@ function Home(props) {
     return (props.isLoading ?[...Array(8)] : filtrItems).map((item, index) => (
       <Card
         key={index}
+        onFavorite={(obj) => props.onAddFavorite(obj)}
+        onPlus={(obj) => props.onAddToCart(obj)}
+        isLoading ={props.isLoading}
+        {...item}
         // id= {item.id}
         // title={item.title}
         // imageUrl={item.imageUrl}
-        // price={item.price}
-        onFavorite={(obj) => props.onAddFavorite(obj)}
-        onPlus={(obj) => props.onAddToCart(obj)}
-        addEd={props.cartItems.some(obj => Number(obj.id) === Number(item.id))}
-        isLoading ={props.isLoading}
-        {...item}
+        // price={item.price}// addEd={props.cartItems.some(obj => Number(obj.id) === Number(item.id))}
+        // addEdit = { getAdedItems(item && item.id)}
+        
       />
     ))
   }
