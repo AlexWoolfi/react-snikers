@@ -8,7 +8,7 @@ import { AppContext } from '../App';
             <img
               className="mb-20"
               width="120px"
-              height="120px"
+              // height="120px"
               src= { image }
               alt="empty-cart"
             />

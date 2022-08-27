@@ -184,6 +184,10 @@ header {
 
 .greenButton {
   position: relative;
+  
+  &:disabled{
+    animation: button-loading 0.8s ease-in-out infinite;
+  }
 
   &:hover {
     img {
@@ -209,10 +213,26 @@ header {
   font-weight: 500;
   // transition: #9dd558;
 
+  &:disabled {
+    background-color: #bebebe !important;
+    cursor:default;
+  }
+
   &:hover {
     background: opacify($color: #93e063, $amount: 0);
   }
   &:active {
     background: darken($color: #034a06, $amount: 0);
   }
+}
+@keyframes button-loading {
+  0% {
+    opacity: 1;
+ }
+ 50%{
+  opacity: 0,3;
+ }
+ 100%{ 
+   opacity : 0;
+   }
 }
